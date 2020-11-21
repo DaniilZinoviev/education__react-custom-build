@@ -1,7 +1,3 @@
 {
-  "plugins": [
-    "@babel/plugin-transform-block-scoping",
-    "@babel/plugin-transform-classes",
-    "@babel/plugin-transform-template-literals"
-  ]
+  "presets": ["@babel/env"]
 }

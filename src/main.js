@@ -2,8 +2,7 @@
  * This is my App :)
  */
 class App {
-  run() {
-    const name = "React custom app";
+  run = (name = "React custom app") => {
     console.log(`App "${name}" has been successfully started.`);
   }
 }
