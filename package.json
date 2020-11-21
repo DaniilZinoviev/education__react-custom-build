@@ -1,0 +1,19 @@
+{
+  "name": "custom-build",
+  "version": "1.0.0",
+  "description": "This is just a snapshot for history of my education. It isn't interesting, I think.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaniilZinoviev/education__react-custom-build.git"
+  },
+  "author": "Daniil Zinoviev <danzino21@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DaniilZinoviev/education__react-custom-build/issues"
+  },
+  "homepage": "https://github.com/DaniilZinoviev/education__react-custom-build#readme"
+}
