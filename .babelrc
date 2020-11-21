@@ -1,15 +1,4 @@
 {
-  "presets": [
-    [
-      "@babel/env",
-      {
-        "debug": true,
-        "targets": [
-          "> 10%"
-        ]
-      }
-    ]],
-  "plugins": [
-    "@babel/plugin-proposal-class-properties"
-  ]
+  "presets": [["@babel/env", { "modules": false }], "@babel/react"],
+  "plugins": ["@babel/plugin-proposal-class-properties"]
 }
