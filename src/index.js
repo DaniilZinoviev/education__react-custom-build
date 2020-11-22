@@ -1,16 +1,18 @@
 import React from "react";
-import ReactDOM from 'react-dom'
+import ReactDOM from "react-dom";
 
+import css from "./main.scss";
 import src from "./guitar.jpg";
 
-const App = () => {
-  return (<div>
-    <h1>Hello world!</h1>
-    <img src={src} alt="Guitar"/>
-  </div>)
-}
+console.log(`CSS loader returned`, css.toString());
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-)
+const App = () => {
+  return (
+    <div>
+      <h1>Hello world!</h1>
+      <img src={src} alt="Guitar" />
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById("root"));
