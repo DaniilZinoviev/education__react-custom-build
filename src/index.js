@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import "./main.scss";
-import src from "./guitar.jpg";
+import "./styles/main.scss";
+import src from "./images/guitar.jpg";
 
 const App = () => {
   return (
