@@ -1,12 +1,16 @@
-import Logger from "./logger";
-import Calc from "./calc";
+import React from "react";
+import ReactDOM from 'react-dom'
+
 import src from "./guitar.jpg";
 
-const calc = new Calc();
-const logger = new Logger();
+const App = () => {
+  return (<div>
+    <h1>Hello world!</h1>
+    <img src={src} alt="Guitar"/>
+  </div>)
+}
 
-logger.log(calc.sum(1, 2, 3));
-
-const image = document.createElement('img');
-image.src = src;
-document.body.appendChild(image)
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+)
