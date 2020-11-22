@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  // mode: "production",
+
   module: {
     rules: [
       {
@@ -48,7 +48,10 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
+      title: 'Webpack application | App',
+      buildTime: new Date().toISOString(),
       template: "public/index.html",
-    }),
+    })
   ],
+
 };
