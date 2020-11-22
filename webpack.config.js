@@ -4,7 +4,15 @@ module.exports = {
     rules: [
       {
         test: /\.(svg|png|jpg|jpeg|webp)$/,
-        use: "file-loader",
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              outputPath: "images",
+              name: "[name]-[sha1:hash:7].[ext]",
+            },
+          },
+        ],
       },
     ],
   },
