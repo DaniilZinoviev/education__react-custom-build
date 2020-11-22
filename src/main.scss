@@ -1,8 +1,17 @@
 $accent-color: olive;
 
+@font-face {
+  font-family: "Alegreya";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./fonts/Alegreya-Bold.ttf") format("truetype");
+}
+
 body {
   background-color: $accent-color;
   h1 {
     color: white;
+    font-family: "Alegreya", "serif";
   }
 }

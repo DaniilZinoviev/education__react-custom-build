@@ -5,11 +5,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: "babel-loader",
-          },
-        ],
+        loader: "babel-loader",
       },
       {
         test: /\.css$/,
@@ -27,6 +23,20 @@ module.exports = {
             options: {
               outputPath: "images",
               name: "[name]-[sha1:hash:7].[ext]",
+            },
+          },
+        ],
+      },
+
+      // Load fonts
+      {
+        test: /\.(otf|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              outputPath: "fonts",
+              name: "[name].[ext]",
             },
           },
         ],

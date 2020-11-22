@@ -1,10 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import css from "./main.scss";
+import "./main.scss";
 import src from "./guitar.jpg";
-
-console.log(`CSS loader returned`, css.toString());
 
 const App = () => {
   return (
