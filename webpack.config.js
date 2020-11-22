@@ -3,7 +3,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(svg|png|jpg|jpeg|webp)$/,
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "babel-loader",
+          },
+        ],
+      },
+      {
+        test: /\.(svg|png|jpe?g|webp)$/,
         use: [
           {
             loader: "file-loader",
