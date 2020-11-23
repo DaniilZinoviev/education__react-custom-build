@@ -118,6 +118,10 @@ module.exports = (env = {}) => {
 
     devServer: {
       open: true,
+      port: 3000,
+      compress: true,
     },
+
+    devtool: isProd ? 'eval' : 'eval-source-map'
   };
 };

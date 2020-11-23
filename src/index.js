@@ -5,6 +5,7 @@ import "./styles/main.scss";
 import src from "./images/guitar.jpg";
 
 const App = () => {
+  console.log(`I'm alive!`);
   return (
     <div>
       <h1>Hello world!</h1>
