@@ -1,3 +1,4 @@
+const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -42,23 +43,35 @@ module.exports = (env = {}) => {
   };
 
   return {
+    entry: './src/index.js',
+    output: {
+      filename: 'main.js',
+      path: path.resolve(__dirname, 'dist')
+    },
     mode: isProd ? "production" : isDev && "development",
 
     module: {
       rules: [
+        // JS Transpiling
         {
           test: /\.js$/,
           exclude: /node_modules/,
           loader: "babel-loader",
         },
+
+        // Load CSS
         {
           test: /\.css$/,
           use: getStyleLoaders(),
         },
+
+        // Load SASS || SCSS
         {
           test: /\.s[ac]ss$/,
           use: [...getStyleLoaders(), "sass-loader"],
         },
+
+        // Load images
         {
           test: /\.(svg|png|jpe?g|webp)$/,
           use: [
@@ -80,6 +93,19 @@ module.exports = (env = {}) => {
               loader: "file-loader",
               options: {
                 outputPath: "fonts",
+                name: "[name].[ext]",
+              },
+            },
+          ],
+        },
+
+        // Load different files
+        {
+          test: /\.(txt|pdf)$/,
+          use: [
+            {
+              loader: "file-loader",
+              options: {
                 name: "[name].[ext]",
               },
             },
