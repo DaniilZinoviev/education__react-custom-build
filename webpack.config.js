@@ -1,7 +1,7 @@
-const path = require('path');
+const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const ESLintPlugin = require('eslint-webpack-plugin');
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 module.exports = (env = {}) => {
   const { MODE: mode = "development" } = env;
@@ -10,17 +10,20 @@ module.exports = (env = {}) => {
   const isDev = mode === "development";
 
   const getStyleLoaders = () => {
-    return [
-      isProd
-        ? {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: "./",
-            },
-          }
-        : "style-loader",
-      "css-loader",
-    ];
+    const loaders = ["css-loader"];
+
+    let firstLoader = "style-loader";
+    if (isProd) {
+      firstLoader = {
+        loader: MiniCssExtractPlugin.loader,
+        options: {
+          publicPath: "./",
+        },
+      };
+    }
+    loaders.unshift(firstLoader);
+
+    return loaders;
   };
 
   const getPlugins = () => {
@@ -43,9 +46,9 @@ module.exports = (env = {}) => {
     if (isDev) {
       plugins.push(
         new ESLintPlugin({
-          formatter: 'codeframe'
+          formatter: "codeframe",
         })
-      )
+      );
     }
 
     return plugins;
@@ -54,13 +57,13 @@ module.exports = (env = {}) => {
   return {
     entry: {
       home: {
-        import: './src/index.js',
-        filename: 'home.js'
+        import: "./src/index.js",
+        filename: "home.js",
       },
     },
     output: {
-      filename: 'main.js',
-      path: path.resolve(__dirname, 'dist')
+      filename: "main.js",
+      path: path.resolve(__dirname, "dist"),
     },
     mode: isProd ? "production" : isDev && "development",
 
@@ -68,9 +71,16 @@ module.exports = (env = {}) => {
       rules: [
         // JS Transpiling
         {
-          test: /\.js$/,
+          test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           loader: "babel-loader",
+        },
+
+        // TS Transpiling
+        {
+          test: /\.(ts|tsx)$/,
+          exclude: /node_modules/,
+          loader: "ts-loader",
         },
 
         // Load CSS
@@ -136,7 +146,7 @@ module.exports = (env = {}) => {
       compress: true,
     },
 
-    devtool: isProd ? 'eval' : 'eval-source-map',
-    context: path.resolve(__dirname, '')
+    devtool: "inline-source-map",
+    context: path.resolve(__dirname, ""),
   };
 };
