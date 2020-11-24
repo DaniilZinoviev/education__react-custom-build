@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = (env = {}) => {
   const { MODE: mode = "development" } = env;
@@ -37,6 +38,14 @@ module.exports = (env = {}) => {
           filename: "main-[hash:4].css",
         })
       );
+    }
+
+    if (isDev) {
+      plugins.push(
+        new ESLintPlugin({
+          formatter: 'codeframe'
+        })
+      )
     }
 
     return plugins;
