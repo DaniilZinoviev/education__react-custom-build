@@ -5,8 +5,6 @@ import "./styles/main.scss";
 import src from "./images/guitar.jpg";
 
 const App = () => {
-          var a = 123;
-  console.log('a', a)
   return (
     <div>
       <h1>Hello world!</h1>
