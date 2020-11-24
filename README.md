@@ -5,7 +5,7 @@ This is just a snapshot of my education history . It also can be used to memoriz
 ## Technologies
 
 Core:
-  - Webpack
+  - Webpack 5
  
  And some additional:
   - React
