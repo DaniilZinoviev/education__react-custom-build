@@ -43,7 +43,12 @@ module.exports = (env = {}) => {
   };
 
   return {
-    entry: './src/index.js',
+    entry: {
+      home: {
+        import: './src/index.js',
+        filename: 'home.js'
+      },
+    },
     output: {
       filename: 'main.js',
       path: path.resolve(__dirname, 'dist')
@@ -122,6 +127,7 @@ module.exports = (env = {}) => {
       compress: true,
     },
 
-    devtool: isProd ? 'eval' : 'eval-source-map'
+    devtool: isProd ? 'eval' : 'eval-source-map',
+    context: path.resolve(__dirname, '')
   };
 };
